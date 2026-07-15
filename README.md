@@ -38,9 +38,4 @@ Together we can build better security for critical infrastructure.
 
 ## License
 
-This project is licensed under the MIT License.
-Contributions, feedback, and suggestions are welcome. The goal of this project is to build an open platform for industrial cybersecurity research and development.
-
-## License
-
 This project is released under the MIT License.
