@@ -1,0 +1,4 @@
+timestamp,source_ip,destination_ip,protocol,port,function_code,status
+2026-07-15 10:00:01,192.168.1.10,192.168.1.20,Modbus TCP,502,3,Normal
+2026-07-15 10:00:05,192.168.1.15,192.168.1.20,Modbus TCP,502,16,Normal
+2026-07-15 10:00:09,192.168.1.99,192.168.1.20,Modbus TCP,502,43,Suspicious
