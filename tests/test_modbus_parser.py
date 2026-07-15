@@ -1,4 +1,4 @@
-from src.modbus_parser import ModbusParser
+from modbus_parser import ModbusParser
 
 
 def test_modbus_parser():
