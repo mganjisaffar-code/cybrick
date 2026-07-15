@@ -1,20 +1,37 @@
 """
-Cybrick Modbus TCP Parser
-
-Initial implementation for future Modbus TCP packet analysis.
+Cybrick - Modbus TCP Parser
 """
 
+from dataclasses import dataclass
+
+
+@dataclass
+class ModbusPacket:
+    transaction_id: int
+    protocol_id: int
+    length: int
+    unit_id: int
+    function_code: int
+
+
 class ModbusParser:
-    def __init__(self):
-        self.supported_port = 502
 
-    def protocol_name(self):
-        return "Modbus TCP"
+    @staticmethod
+    def parse(data: bytes):
 
-    def is_modbus_port(self, port):
-        return port == self.supported_port
+        if len(data) < 8:
+            raise ValueError("Invalid Modbus TCP packet")
 
+        transaction_id = int.from_bytes(data[0:2], "big")
+        protocol_id = int.from_bytes(data[2:4], "big")
+        length = int.from_bytes(data[4:6], "big")
+        unit_id = data[6]
+        function_code = data[7]
 
-if __name__ == "__main__":
-    parser = ModbusParser()
-    print(parser.protocol_name())
+        return ModbusPacket(
+            transaction_id,
+            protocol_id,
+            length,
+            unit_id,
+            function_code,
+        )
