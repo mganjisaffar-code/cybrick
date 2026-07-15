@@ -1,29 +1,44 @@
 # Cybrick
 
-Cybrick is an open-source AI-native cybersecurity framework designed to enhance the security of Industrial Control Systems (ICS), SCADA environments, and Operational Technology (OT) networks.
+**Cybrick** is an open-source, AI-native cybersecurity framework designed to improve the security and resilience of Industrial Control Systems (ICS), SCADA environments, and Operational Technology (OT) networks.
 
-## Vision
+## Why Cybrick?
 
-The project aims to provide practical, accessible, and extensible security technologies that help protect critical infrastructure against modern cyber threats.
+Industrial systems are increasingly targeted by sophisticated cyber attacks, while many existing security solutions are either expensive, proprietary, or designed primarily for traditional IT environments.
 
-## Features
+Cybrick aims to bridge this gap by providing an open, extensible platform that combines artificial intelligence, cybersecurity research, and practical engineering to help detect, analyze, and respond to cyber threats affecting critical infrastructure.
 
-- AI-assisted threat detection
-- Industrial protocol security
-- SCADA and ICS security research
-- Modular and extensible architecture
-- Open-source community collaboration
+## Project Goals
 
-## Roadmap
+- Improve the security of ICS and SCADA environments.
+- Develop AI-assisted threat detection techniques.
+- Support industrial communication protocols.
+- Publish open research and technical documentation.
+- Encourage collaboration within the cybersecurity community.
 
-- Initial architecture
-- Core security modules
-- Documentation
-- Community contributions
+## Planned Features
+
+- AI-powered anomaly detection
+- Industrial protocol analysis
+- Threat intelligence integration
+- Security monitoring
+- Modular architecture
 - Research implementations
+- Developer documentation
+
+## Project Status
+
+🚧 This project is currently under active development. The initial architecture and documentation are being prepared, and new modules will be added progressively.
 
 ## Contributing
 
+Contributions, ideas, bug reports, and pull requests are always welcome.
+
+Together we can build better security for critical infrastructure.
+
+## License
+
+This project is licensed under the MIT License.
 Contributions, feedback, and suggestions are welcome. The goal of this project is to build an open platform for industrial cybersecurity research and development.
 
 ## License
