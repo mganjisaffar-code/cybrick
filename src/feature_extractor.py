@@ -1,14 +1,16 @@
-"""
-Cybrick Feature Extraction Module
-Extracts basic features from ICS/SCADA traffic.
-"""
+from modbus_parser import ModbusParser
+
 
 class FeatureExtractor:
 
     @staticmethod
     def extract(packet: bytes):
 
+        modbus = ModbusParser.parse(packet)
+
         return {
             "packet_length": len(packet),
-            "is_empty": len(packet) == 0,
+            "unit_id": modbus.unit_id,
+            "function_code": modbus.function_code,
+            "transaction_id": modbus.transaction_id,
         }
