@@ -13,6 +13,14 @@ class AIThreatDetector:
         Returns:
             dict: Detection result.
         """
+
+        if features.get("function_code") == 8:
+            return {
+                "threat_detected": True,
+                "confidence": 0.95,
+                "message": "Suspicious Modbus function detected."
+            }
+
         return {
             "threat_detected": False,
             "confidence": 0.0,
