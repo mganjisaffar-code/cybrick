@@ -23,4 +23,7 @@ def test_cybrick_detection_pipeline():
 
     assert parsed.function_code == 8
     assert features["function_code"] == 8
-    assert result["threat_detected"] is True
+    assert result.threat_detected is True
+    assert result.severity == "high"
+    assert result.protocol == "Modbus TCP"
+    assert result.mitre == "T0804"
