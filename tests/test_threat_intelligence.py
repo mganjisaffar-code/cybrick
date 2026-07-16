@@ -55,23 +55,4 @@ def test_map_ioc_to_mitre():
 
     found = ti.find_by_indicator("192.168.10.50")
 
-    assert found.mitre_technique == technique    ioc = IOC(
-        indicator="192.168.10.50",
-        indicator_type="ip",
-        description="ICS suspicious host"
-    )
-
-    ti.add_ioc(ioc)
-
-    technique = "T0804 - Block Command Message"
-
-    result = ti.map_ioc_to_mitre(
-        "192.168.10.50",
-        technique
-    )
-
-    assert result is True
-
-    found = ti.find_by_indicator("192.168.10.50")
-
     assert found.mitre_technique == technique
