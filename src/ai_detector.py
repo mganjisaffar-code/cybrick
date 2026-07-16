@@ -32,8 +32,4 @@ class AIThreatDetector:
             threat="No threat detected",
             confidence=0.0,
             mitre=""
-        )        return {
-            "threat_detected": False,
-            "confidence": 0.0,
-            "message": "No threat detected."
-        }
+        )
