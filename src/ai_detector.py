@@ -1,10 +1,14 @@
 """
 Cybrick AI Threat Detection Engine
-Version 0.1
+Version 0.2
 """
 
+
 class AIThreatDetector:
-    """Initial AI threat detection engine."""
+    """AI-assisted ICS threat detection engine."""
+
+    def __init__(self, threat_intelligence=None):
+        self.threat_intelligence = threat_intelligence
 
     def analyze(self, features):
         """
@@ -15,17 +19,23 @@ class AIThreatDetector:
         """
 
         if features.get("function_code") == 8:
-            return {
-    "threat_detected": True,
-    "severity": "high",
-    "protocol": "Modbus TCP",
-    "threat": "Suspicious Function Code",
-    "confidence": 0.95,
-    "mitre": "T0804"
-}
+
+            result = {
+                "threat_detected": True,
+                "severity": "high",
+                "protocol": "Modbus TCP",
+                "threat": "Suspicious Function Code",
+                "confidence": 0.95,
+                "mitre": "T0804"
+            }
+
+            if self.threat_intelligence:
+                result["threat_intelligence"] = True
+
+            return result
 
         return {
             "threat_detected": False,
             "confidence": 0.0,
-            "message": "AI engine initialized."
+            "message": "No threat detected."
         }
