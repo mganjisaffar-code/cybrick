@@ -3,13 +3,13 @@ Cybrick Threat Intelligence Module
 Version 0.1
 """
 
-
 class IOC:
 
     def __init__(self, indicator, indicator_type, description):
         self.indicator = indicator
         self.indicator_type = indicator_type
         self.description = description
+        self.mitre_technique = None
 
 
 class ThreatIntelligence:
