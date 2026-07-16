@@ -1,4 +1,5 @@
 from ai_detector import AIThreatDetector
+from threat_intelligence import ThreatIntelligence
 
 
 def test_ai_detector_initialization():
@@ -33,3 +34,19 @@ def test_threat_alert_format():
     assert result["protocol"] == "Modbus TCP"
     assert result["mitre"] == "T0804"
     assert result["confidence"] == 0.95
+
+
+def test_ai_detector_with_threat_intelligence():
+
+    ti = ThreatIntelligence()
+
+    detector = AIThreatDetector(
+        threat_intelligence=ti
+    )
+
+    result = detector.analyze({
+        "function_code": 8
+    })
+
+    assert result["threat_detected"] is True
+    assert result["threat_intelligence"] is True
