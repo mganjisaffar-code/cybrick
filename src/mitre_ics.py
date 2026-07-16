@@ -1,46 +1,21 @@
-"""
-Cybrick MITRE ATT&CK for ICS
-Version 0.1
-"""
+from mitre_ics import MITREICSDatabase
 
 
-class MITRETechnique:
+def test_load_default_techniques():
+    db = MITREICSDatabase()
 
-    def __init__(self, technique_id, name, tactic):
-        self.technique_id = technique_id
-        self.name = name
-        self.tactic = tactic
+    db.load_default()
+
+    assert db.count() == 2
 
 
-class MITREICSDatabase:
+def test_find_mitre_technique():
+    db = MITREICSDatabase()
 
-    def __init__(self):
-        self.techniques = []
+    db.load_default()
 
-    def add(self, technique):
-        self.techniques.append(technique)
+    result = db.find_by_id("T0804")
 
-    def count(self):
-        return len(self.techniques)
-    def find_by_id(self, technique_id):
-        for technique in self.techniques:
-            if technique.technique_id == technique_id:
-                return technique
-
-        return None
-    def load_default(self):
-        self.add(
-            MITRETechnique(
-                "T0804",
-                "Block Command Message",
-                "Impair Process Control"
-            )
-        )
-
-        self.add(
-            MITRETechnique(
-                "T0855",
-                "Unauthorized Command Message",
-                "Execution"
-            )
-        )
+    assert result is not None
+    assert result.name == "Block Command Message"
+    assert result.tactic == "Impair Process Control"
