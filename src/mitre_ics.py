@@ -22,7 +22,12 @@ class MITREICSDatabase:
 
     def count(self):
         return len(self.techniques)
+    def find_by_id(self, technique_id):
+        for technique in self.techniques:
+            if technique.technique_id == technique_id:
+                return technique
 
+        return None
     def load_default(self):
         self.add(
             MITRETechnique(
