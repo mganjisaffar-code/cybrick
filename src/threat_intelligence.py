@@ -22,7 +22,13 @@ class ThreatIntelligence:
 
     def count(self):
         return len(self.iocs)
+    def map_ioc_to_mitre(self, indicator, technique):
+        for ioc in self.iocs:
+            if ioc.indicator == indicator:
+                ioc.mitre_technique = technique
+                return True
 
+        return False
     def find_by_indicator(self, indicator):
         for ioc in self.iocs:
             if ioc.indicator == indicator:
