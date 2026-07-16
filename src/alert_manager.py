@@ -17,5 +17,6 @@ class AlertManager:
 
     def get_all(self):
         return self.alerts
+
     def clear(self):
-    self.alerts.clear()
+        self.alerts.clear()
