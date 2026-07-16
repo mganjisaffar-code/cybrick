@@ -1,4 +1,6 @@
 from ai_detector import AIThreatDetector
+from threat_intelligence import ThreatIntelligence
+from ai_detector import AIThreatDetector
 
 
 def test_ai_detector_initialization():
