@@ -1,7 +1,9 @@
 """
 Cybrick AI Threat Detection Engine
-Version 0.2
+Version 0.3
 """
+
+from alert import Alert
 
 
 class AIThreatDetector:
@@ -11,30 +13,26 @@ class AIThreatDetector:
         self.threat_intelligence = threat_intelligence
 
     def analyze(self, features):
-        """
-        Analyze ICS traffic features.
-
-        Returns:
-            dict: Detection result.
-        """
 
         if features.get("function_code") == 8:
 
-            result = {
-                "threat_detected": True,
-                "severity": "high",
-                "protocol": "Modbus TCP",
-                "threat": "Suspicious Function Code",
-                "confidence": 0.95,
-                "mitre": "T0804"
-            }
+            return Alert(
+                threat_detected=True,
+                severity="high",
+                protocol="Modbus TCP",
+                threat="Suspicious Function Code",
+                confidence=0.95,
+                mitre="T0804"
+            )
 
-            if self.threat_intelligence:
-                result["threat_intelligence"] = True
-
-            return result
-
-        return {
+        return Alert(
+            threat_detected=False,
+            severity="low",
+            protocol="Unknown",
+            threat="No threat detected",
+            confidence=0.0,
+            mitre=""
+        )        return {
             "threat_detected": False,
             "confidence": 0.0,
             "message": "No threat detected."
