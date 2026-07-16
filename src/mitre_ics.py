@@ -22,3 +22,20 @@ class MITREICSDatabase:
 
     def count(self):
         return len(self.techniques)
+
+    def load_default(self):
+        self.add(
+            MITRETechnique(
+                "T0804",
+                "Block Command Message",
+                "Impair Process Control"
+            )
+        )
+
+        self.add(
+            MITRETechnique(
+                "T0855",
+                "Unauthorized Command Message",
+                "Execution"
+            )
+        )
