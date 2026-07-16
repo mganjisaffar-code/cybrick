@@ -22,3 +22,9 @@ class ThreatIntelligence:
 
     def count(self):
         return len(self.iocs)
+
+    def find_by_indicator(self, indicator):
+        for ioc in self.iocs:
+            if ioc.indicator == indicator:
+                return ioc
+        return None
