@@ -16,10 +16,13 @@ class AIThreatDetector:
 
         if features.get("function_code") == 8:
             return {
-                "threat_detected": True,
-                "confidence": 0.95,
-                "message": "Suspicious Modbus function detected."
-            }
+    "threat_detected": True,
+    "severity": "high",
+    "protocol": "Modbus TCP",
+    "threat": "Suspicious Function Code",
+    "confidence": 0.95,
+    "mitre": "T0804"
+}
 
         return {
             "threat_detected": False,
