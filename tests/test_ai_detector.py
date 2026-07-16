@@ -1,6 +1,5 @@
 from ai_detector import AIThreatDetector
 from threat_intelligence import ThreatIntelligence
-from ai_detector import AIThreatDetector
 
 
 def test_ai_detector_initialization():
@@ -36,8 +35,8 @@ def test_threat_alert_format():
     assert result.mitre == "T0804"
     assert result.confidence == 0.95
 
-def test_ai_detector_with_threat_intelligence():
 
+def test_ai_detector_with_threat_intelligence():
     ti = ThreatIntelligence()
 
     detector = AIThreatDetector(
@@ -48,5 +47,5 @@ def test_ai_detector_with_threat_intelligence():
         "function_code": 8
     })
 
-    assert result["threat_detected"] is True
-    assert result["threat_intelligence"] is True
+    assert result.threat_detected is True
+    assert result.confidence == 0.95
