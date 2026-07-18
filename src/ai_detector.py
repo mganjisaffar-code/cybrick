@@ -1,9 +1,10 @@
 """
 Cybrick AI Threat Detection Engine
-Version 0.3
+Version 0.4
 """
 
 from alert import Alert
+from rule_engine import RuleEngine
 
 
 class AIThreatDetector:
@@ -11,18 +12,20 @@ class AIThreatDetector:
 
     def __init__(self, threat_intelligence=None):
         self.threat_intelligence = threat_intelligence
+        self.rule_engine = RuleEngine()
 
     def analyze(self, features):
 
-        if features.get("function_code") == 8:
+        rule = self.rule_engine.evaluate(features)
 
+        if rule is not None:
             return Alert(
                 threat_detected=True,
-                severity="high",
+                severity=rule["severity"],
                 protocol="Modbus TCP",
                 threat="Suspicious Function Code",
                 confidence=0.95,
-                mitre="T0804"
+                mitre=rule["mitre"]
             )
 
         return Alert(
