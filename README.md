@@ -39,3 +39,19 @@ Together we can build better security for critical infrastructure.
 ## License
 
 This project is released under the MIT License.
+---
+
+## Rule Engine
+
+Cybrick includes an extensible Rule Engine for Industrial Control Systems (ICS).
+
+### Current capabilities
+
+- Detect suspicious Modbus TCP Function Code 8
+- Map detections to MITRE ATT&CK for ICS
+- Integrate with AI Threat Detector
+- Designed for future protocol expansion (DNP3, OPC UA, IEC 104)
+
+### Status
+
+Current implementation: Version 0.2
