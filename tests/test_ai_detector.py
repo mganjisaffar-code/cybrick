@@ -49,3 +49,29 @@ def test_ai_detector_with_threat_intelligence():
 
     assert result.threat_detected is True
     assert result.confidence == 0.95
+
+
+def test_rule_engine_integration():
+    detector = AIThreatDetector()
+
+    result = detector.analyze({
+        "function_code": 8
+    })
+
+    assert result.threat_detected is True
+    assert result.severity == "high"
+    assert result.mitre == "T0804"
+
+def test_ai_detector_with_threat_intelligence():
+    ti = ThreatIntelligence()
+
+    detector = AIThreatDetector(
+        threat_intelligence=ti
+    )
+
+    result = detector.analyze({
+        "function_code": 8
+    })
+
+    assert result.threat_detected is True
+    assert result.confidence == 0.95
